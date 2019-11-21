@@ -14,6 +14,7 @@ class Login extends Component {
     })
   }
 
+  //flask json to js json
   handleSubmit = async (e) => {
     e.preventDefault()
     const registerResponse = await fetch(`${process.env.REACT_APP_API_URL}/user/login`,{
