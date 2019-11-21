@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import MovieSelectors from '../MovieSelectors'
 
 class MovieContainer extends Component {
   constructor(props){
     super(props);
-
       this.state = {
-        movies: []
+        movies: [],
+        selectedGenre : undefined
       }
   }
 
@@ -15,9 +16,8 @@ class MovieContainer extends Component {
 
   getMovies = async () => {
     try{
-      const movies = await fetch(process.env.REACT_APP_API_URL + '/api/v1/movies/');
+      const movies = await fetch(process.env.REACT_APP_API_URL + '/movie/');
       const parsedMovies = await movies.json();
-      console.log(parsedMovies)
       this.setState({
         movies: parsedMovies.data
       })
@@ -25,9 +25,25 @@ class MovieContainer extends Component {
       console.log(err)
     }
   }
+
+  changeGenre = (e) => {
+    this.setState({
+      selectedGenre : e.target.value
+    })
+  }
+
+  pickMovie = (e) => {
+    e.preventDefault()
+    const moviesInGenre = this.state.movies.filter(movie => movie.genre === this.state.selectedGenre)
+    console.log(moviesInGenre)
+  }
+
   render(){
     return(
-      "I am the MovieContainer"
+      <MovieSelectors 
+      changeGenre = {this.changeGenre}
+      pickMovie = {this.pickMovie}
+      />
     )
   }
 }
