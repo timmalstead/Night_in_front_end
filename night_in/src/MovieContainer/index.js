@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import MovieSelectors from '../MovieSelectors'
+import MovieRender from '../MovieRender'
 
 class MovieContainer extends Component {
   constructor(props){
     super(props);
       this.state = {
         movies: [],
-        selectedGenre : undefined
+        selectedGenre : undefined,
+        selectedMovie : undefined
       }
   }
 
@@ -35,15 +37,23 @@ class MovieContainer extends Component {
   pickMovie = (e) => {
     e.preventDefault()
     const moviesInGenre = this.state.movies.filter(movie => movie.genre === this.state.selectedGenre)
-    console.log(moviesInGenre)
+    const randomMovieNumber = Math.floor(Math.random() * moviesInGenre.length)
+    this.setState({
+      selectedMovie : moviesInGenre[randomMovieNumber]
+    })
   }
 
   render(){
     return(
-      <MovieSelectors 
-      changeGenre = {this.changeGenre}
-      pickMovie = {this.pickMovie}
-      />
+      <div>
+        <MovieSelectors 
+        changeGenre = {this.changeGenre}
+        pickMovie = {this.pickMovie}
+        />
+        <MovieRender 
+        selectedMovie = {this.state.selectedMovie}
+        />
+      </div>
     )
   }
 }
