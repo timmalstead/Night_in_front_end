@@ -11,13 +11,11 @@ import Login from './Login'
 function App() {
   return (
     <div>
-      <Login />
+     <Login /> 
      <Register />
+     <MovieContainer />
     </div>
   );
 }
-
-
-
 
 export default App;
