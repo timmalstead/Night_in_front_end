@@ -1,8 +1,7 @@
 import React  from 'react';
-// import { Link, NavLink } from 'react-router-dom';
+import Nav from './style.js'
 
-
-function Navbar() {
+function Navbar(props) {
 
     const handleLogout = async (e) =>  {
         console.log('this logout')
@@ -12,24 +11,24 @@ function Navbar() {
         })
         console.log('this is message', logout)
     }
-
+    // onClick={() => handleLogin()}
     return( 
-        <nav>
+        <Nav>
             <main>
-                <div >
+                {/* <div >
                     <a href="/">Home</a>
                     <a href="/movie">Movies</a>
+                </div> */}
+                <div>
+                    LOGO
                 </div>
-                <article >
-                </article>
                 <section>
-                    <a href="/Home">Account</a>
-                    
-                    <p onClick={()=> handleLogout() }>Logout</p>
-                    
+                    <p onClick={() => props.logIn()}>LOGIN</p>
+                    {/* <a href="/Home">Login</a> */}
+                    <p onClick={()=> handleLogout() }>LOGOUT</p>
                 </section>
             </main>
-        </nav>
+        </Nav>
     )
 };
 

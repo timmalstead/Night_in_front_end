@@ -1,6 +1,6 @@
 
 //Parent Container
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import MovieContainer from './MovieContainer';
 import Register from './Register';
@@ -10,16 +10,36 @@ import RecipeContainer from './RecipeContainer'
 
 
 //Parent Container
-function App() {
+class App extends Component {
+  
+  state = {
+    showLogIn : false,
+    showRegister : false
+  }
+
+  logIn = () => {
+    this.setState({
+      showLogIn : true
+    })
+  }
+
+  register = () => {
+    this.setState({
+      showRegister : true
+    })
+  }
+
+  render() {
   return (
     <div>
-      <Navbar />
-      <Login /> 
-      <Register />
+      <Navbar logIn ={this.logIn}/>
+      {this.state.showLogIn ? <Login register = {this.register}/> : null }
+      {this.state.showRegister ? <Register /> : null}
       <MovieContainer />
       <RecipeContainer />
     </div>
   );
+  }
 }
 
 export default App;

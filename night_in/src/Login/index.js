@@ -49,6 +49,7 @@ class Login extends Component {
         <small> Email</small>
         <input type='text' name="email" onChange={this.handleChange} />
         <button type="Submit" color="green">Login</button>
+        <button type="button" onClick={() => this.props.register()}>Register</button>
       </form>
     )
   }
