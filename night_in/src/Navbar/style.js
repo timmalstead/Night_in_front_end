@@ -18,6 +18,9 @@ div {
 
 section {
     margin :  0 2em;
+    display : flex;
+    flex-direction : column;
+    justify-content : center;
 }
 
 p {
