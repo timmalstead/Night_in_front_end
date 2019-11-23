@@ -38,6 +38,12 @@ const RenderStyle = styled.div`
         margin : 0 0 .5em 0;
     }
  
+    @media (max-width: 1200px) {
+      
+        details {
+            width : 20em;
+        }
+
 `
 
 export default RenderStyle

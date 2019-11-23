@@ -17,6 +17,16 @@ const RecipeStyle = styled.div`
         border-radius : 3em;
         overflow : scroll;
     }
+
+    @media (max-width: 900px) {
+      
+        width : 100%;
+        
+        main {
+            margin : 0 0 1em 0;
+        }
+        
+      }
 `
 
 export default RecipeStyle

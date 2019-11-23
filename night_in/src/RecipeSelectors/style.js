@@ -21,6 +21,14 @@ const FormStyle = styled.form`
         min-width : 40%;
     }
 
+    @media (max-width: 1100px) {
+        
+        flex-direction : column;
+    
+    button, select {
+        min-width : 50%;
+    }
+    }
 `
 
 export {FormStyle}

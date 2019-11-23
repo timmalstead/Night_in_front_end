@@ -35,7 +35,7 @@ class App extends Component {
       <Navbar logIn ={this.logIn}/>
       {this.state.showLogIn ? <Login register = {this.register}/> : null}
       {this.state.showRegister ? <Register /> : null}
-      <div style={{'display': 'flex', 'margin' : '1em'}}>
+      <div className="main-app" style={{'display': 'flex', 'margin' : '1em'}}>
         <MovieContainer />
         <RecipeContainer />
       </div>
