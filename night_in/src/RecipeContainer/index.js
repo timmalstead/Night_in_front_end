@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import RecipeSelectors from '../RecipeSelectors'
 import RecipeRender from '../RecipeRender'
+import RecipeStyle from './style.js'
 
 class RecipeContainer extends Component {
   constructor(props){
@@ -39,15 +40,17 @@ class RecipeContainer extends Component {
 
   render(){
     return(
-      <div>
-        <RecipeSelectors 
-        changeRecipeCatergory={this.changeRecipeCatergory}
-        getRecipe={this.getRecipe}
-        />
-        <RecipeRender 
-        selectedRecipe={this.state.selectedRecipe}
-        />
-      </div>
+      <RecipeStyle>
+        <main>
+          <RecipeSelectors 
+          changeRecipeCatergory={this.changeRecipeCatergory}
+          getRecipe={this.getRecipe}
+          />
+          <RecipeRender 
+          selectedRecipe={this.state.selectedRecipe}
+          />
+        </main>
+      </RecipeStyle>
     )
   }
 }

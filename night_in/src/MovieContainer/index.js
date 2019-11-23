@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MovieSelectors from '../MovieSelectors'
 import MovieRender from '../MovieRender'
+import MovieStyle from './style.js'
 
 class MovieContainer extends Component {
   constructor(props){
@@ -45,15 +46,17 @@ class MovieContainer extends Component {
 
   render(){
     return(
-      <div>
-        <MovieSelectors 
-        changeGenre = {this.changeGenre}
-        pickMovie = {this.pickMovie}
-        />
-        <MovieRender 
-        selectedMovie = {this.state.selectedMovie}
-        />
-      </div>
+      <MovieStyle>
+        <main>
+          <MovieSelectors 
+          changeGenre = {this.changeGenre}
+          pickMovie = {this.pickMovie}
+          />
+          <MovieRender 
+          selectedMovie = {this.state.selectedMovie}
+          />
+        </main>
+      </MovieStyle>
     )
   }
 }
