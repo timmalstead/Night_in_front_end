@@ -1,4 +1,5 @@
 import React from 'react'
+import RenderStyle from './style.js'
 
 const RecipeRender = (props) => { 
     
@@ -26,25 +27,27 @@ const RecipeRender = (props) => {
         const splitInstructions = props.selectedRecipe.strInstructions.split('.')
         const mappedInstructions = splitInstructions.map(instruction => <p>{instruction}.</p>)
 
-            return <div>
+            return <div className="recipe-holder">
                 <img alt="Selected Recipe" src={props.selectedRecipe.strMealThumb}/>
-                <h2>{props.selectedRecipe.strMeal}</h2>
-                <details>
-                    <summary>Ingredients</summary>
-                    {finalIngredientArray}
-                </details>
-                <details>
-                    <summary>Instructions</summary>
-                    {mappedInstructions}
-                </details>
+                <div className="meal-details">
+                    <h2>{props.selectedRecipe.strMeal}</h2>
+                    <details>
+                        <summary>Ingredients</summary>
+                        {finalIngredientArray}
+                    </details>
+                    <details>
+                        <summary>Instructions</summary>
+                        {mappedInstructions}
+                    </details>
+                </div>
             </div>
         }
     }
 
     return (
-        <div>
+        <RenderStyle>
             {selectedRecipe()}
-        </div>
+        </RenderStyle>
     )
 
 }

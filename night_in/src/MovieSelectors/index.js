@@ -1,12 +1,14 @@
 import React from 'react'
+import {FormStyle} from '../RecipeSelectors/style.js'
+
 
 const Selector = (props) => {
 
     return (
         <div>
-            <form onSubmit={props.pickMovie}>
+            <FormStyle onSubmit={props.pickMovie}>
                 <select onChange={props.changeGenre}>
-                    <option vaule="">What Kind of Movie Are You In The Mood For?</option>
+                    <option vaule="">Select Movie Genre</option>
                     <option value="Horror">Horror</option>
                     <option value="Comedy">Comedy</option>
                     <option value="Romance">Romance</option>
@@ -26,7 +28,7 @@ const Selector = (props) => {
                     <option value="Biography">Biography</option>
                 </select>
                 <button type="submit">Get Movie</button>
-            </form>
+            </FormStyle>
         </div>
     )
 

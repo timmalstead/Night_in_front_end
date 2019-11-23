@@ -1,12 +1,13 @@
 import React from 'react'
+import {FormStyle} from './style.js'
 
 const Selector = (props) => {
 
     return (
         <div>
-            <form onSubmit={props.getRecipe}>
+            <FormStyle onSubmit={props.getRecipe}>
                 <select onChange={props.changeRecipeCatergory}>
-                    <option value="">What Kind of Dish Are You In The Mood For?</option>
+                    <option value="">Select Main Ingredient</option>
                         <option value="Beef">Beef</option>
                         <option value="Breakfast">Breakfast</option>
                         <option value="Chicken">Chicken</option>
@@ -21,9 +22,9 @@ const Selector = (props) => {
                         <option value="Vegan">Vegan</option>
                         <option value="Vegetarian">Vegetarian</option>
                         <option value="Miscellaneous">Misc.</option>
-                    </select>
+                </select>
                 <button type="submit">Get Recipe</button>
-            </form>
+            </FormStyle>
         </div>
     )
 

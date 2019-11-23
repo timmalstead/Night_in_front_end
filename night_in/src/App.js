@@ -33,10 +33,12 @@ class App extends Component {
   return (
     <div>
       <Navbar logIn ={this.logIn}/>
-      {this.state.showLogIn ? <Login register = {this.register}/> : null }
+      {this.state.showLogIn ? <Login register = {this.register}/> : null}
       {this.state.showRegister ? <Register /> : null}
-      <MovieContainer />
-      <RecipeContainer />
+      <div className="main-app" style={{'display': 'flex', 'margin' : '1em'}}>
+        <MovieContainer />
+        <RecipeContainer />
+      </div>
     </div>
   );
   }
