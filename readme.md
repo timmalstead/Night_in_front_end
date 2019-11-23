@@ -25,7 +25,7 @@ canada.eder@gmail.com, cguerrero@worldwaterinc.com, timmalstead@gmail.com
 * Flask 
 * SQL
 * Postgres
-* SQLLite
+* SQLite
 * Anaconda
 * Jupyter Notebook
 * Beautiful Soup 
