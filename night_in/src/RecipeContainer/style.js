@@ -11,10 +11,11 @@ const RecipeStyle = styled.div`
         display : inherit;
         align-items : inherit;
         flex-direction : inherit;
-        background-color : #1d1d1d;
+        background-color : #181818;
         width : 95%;
-        min-height : 40em;
+        height : 41em;
         border-radius : 3em;
+        overflow : scroll;
     }
 `
 

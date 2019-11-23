@@ -1,10 +1,11 @@
 import React from 'react'
+import RenderStyle from './style.js'
 
 const MovieRender = (props) => {
     
     const selectedMovie = () => {
         if (props.selectedMovie) {
-            return <div>
+            return <div className="movie-holder">
                         <a href={props.selectedMovie.url} target="_blank" rel="noopener noreferrer">
                             <img alt="Selected Movie" src={props.selectedMovie.image} />
                         </a>
@@ -15,9 +16,9 @@ const MovieRender = (props) => {
     }
 
     return (
-        <div>
+        <RenderStyle>
            {selectedMovie()}
-        </div>
+        </RenderStyle>
     )
 
 }
