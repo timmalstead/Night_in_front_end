@@ -48,13 +48,13 @@ class MovieContainer extends Component {
     return(
       <RecipeStyle>
         <main>
-          <MovieSelectors 
-          changeGenre = {this.changeGenre}
-          pickMovie = {this.pickMovie}
-          />
-          <MovieRender 
-          selectedMovie = {this.state.selectedMovie}
-          />
+            <MovieSelectors 
+            changeGenre = {this.changeGenre}
+            pickMovie = {this.pickMovie}
+            />
+            <MovieRender 
+            selectedMovie = {this.state.selectedMovie}
+            />
         </main>
       </RecipeStyle>
     )

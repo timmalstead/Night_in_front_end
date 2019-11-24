@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import RecipeSelectors from '../RecipeSelectors'
 import RecipeRender from '../RecipeRender'
+import RecipeSaver from '../RecipeSaver'
 import RecipeStyle from './style.js'
 
 class RecipeContainer extends Component {
@@ -46,6 +47,7 @@ class RecipeContainer extends Component {
           changeRecipeCatergory={this.changeRecipeCatergory}
           getRecipe={this.getRecipe}
           />
+          <RecipeSaver />
           <RecipeRender 
           selectedRecipe={this.state.selectedRecipe}
           />
