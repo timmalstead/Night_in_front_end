@@ -34,6 +34,7 @@ class App extends Component {
     <div>
       <Navbar logIn ={this.logIn}/>
       {this.state.showLogIn ? <Login register = {this.register}/> : null}
+      {this.state.showLogIn ? <Edit ></Edit> : null}
       {this.state.showRegister ? <Register /> : null}
       <div className="main-app" style={{'display': 'flex', 'margin' : '1em'}}>
         <MovieContainer />
