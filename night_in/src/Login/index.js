@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {  Component } from 'react'
 
 
 class Login extends Component {
@@ -32,10 +32,9 @@ class Login extends Component {
 
     console.log(parsedResponse)
 
-    if(parsedResponse.status.code === "Success"){
+    if(parsedResponse.status.message === "Success"){
       console.log('we did it')
-      this.props.doUpdateCurrentUser(parsedResponse.data)
-      this.props.history.push('/')
+      this.props.doUpdateCurrentUser(parsedResponse.data.id)
     }
   }
 
