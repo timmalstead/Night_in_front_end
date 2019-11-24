@@ -10,7 +10,8 @@ class MovieContainer extends Component {
       this.state = {
         movies: [],
         selectedGenre : undefined,
-        selectedMovie : undefined
+        selectedMovie : undefined,
+        showDeleteMovieButton : false
       }
   }
 
@@ -41,30 +42,21 @@ class MovieContainer extends Component {
     const moviesInGenre = this.state.movies.filter(movie => movie.genre === this.state.selectedGenre)
     const randomMovieNumber = Math.floor(Math.random() * moviesInGenre.length)
     this.setState({
-      selectedMovie : moviesInGenre[randomMovieNumber]
+      selectedMovie : moviesInGenre[randomMovieNumber],
+      showDeleteMovieButton : false
     })
   }
 
-  saveMovie = async (e) => {
-    e.preventDefault()
-    if (this.state.selectedMovie) {
-    try {
-      const movieToSave = { user : this.props.loggedUserId, movie_id : this.state.selectedMovie.id}
-      // const movieToSave = {movie_id : this.state.selectedMovie.id}
-      const movieResponse = await fetch(process.env.REACT_APP_API_URL + '/saved_movie/', {
-        method: 'POST',
-        body: JSON.stringify(movieToSave),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      const parsedMovie = await movieResponse.json()
-      console.log(parsedMovie)
-    } catch (err) {
-      console.log(err)
-      }
-    }
+  requestSavedMovie = (e) => {
+    this.setState({
+      selectedMovie : this.state.movies[Number(e.target.value) - 1],
+      showDeleteMovieButton : true
+    })
   }
+
+  // deleteMovie = () => {
+  //   console.log("howdy doodies!")
+  // }
 
   render(){
     return(
@@ -74,7 +66,12 @@ class MovieContainer extends Component {
             changeGenre = {this.changeGenre}
             pickMovie = {this.pickMovie}
             />
-            {this.props.isLogged ? <MovieSaver saveMovie = {this.saveMovie} loggedUserId = {this.props.loggedUserId}/> : null}
+            {this.props.isLogged ? <MovieSaver 
+            requestSavedMovie={this.requestSavedMovie} 
+            selectedMovie={this.state.selectedMovie} 
+            loggedUserId = {this.props.loggedUserId} 
+            showDeleteMovieButton = {this.state.showDeleteMovieButton}
+            /> : null}
             <MovieRender 
             selectedMovie = {this.state.selectedMovie}
             />
@@ -84,5 +81,4 @@ class MovieContainer extends Component {
   }
 }
  
-
 export default MovieContainer

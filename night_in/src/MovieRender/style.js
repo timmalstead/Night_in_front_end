@@ -13,7 +13,7 @@ const RenderStyle = styled.div`
         display : inherit;
         align-items : inherit;
         flex-direction : inherit;
-        justify-content : center;
+        justify-content : flex-end;
         width : inherit;
         height : inherit;
     }
@@ -22,19 +22,17 @@ const RenderStyle = styled.div`
         display : inherit;
         align-items : inherit;
         flex-direction : inherit;
-        justify-content : inherit;
+        justify-content : flex-start;
         width : 70%;
         height : inherit;
     }
 
     img {
-        max-width : auto;
-        min-width : 80%;
-        max-height : 30em;
+        max-height : 100%;
         min-height : 80%;
-        // overflow : hidden;
         margin : 1em 0 0 0;
         border-radius : 1em;
+        // justify-self : flex-end;
     }
 
     details {
@@ -53,6 +51,7 @@ const RenderStyle = styled.div`
     h3 {
         margin : .5em 0 2em 0;
         text-align : center;
+        justify-self : flex-end;
     }
 `
 
