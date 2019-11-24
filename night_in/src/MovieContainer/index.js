@@ -50,6 +50,7 @@ class MovieContainer extends Component {
     if (this.state.selectedMovie) {
     try {
       const movieToSave = { user : this.props.loggedUserId, movie_id : this.state.selectedMovie.id}
+      // const movieToSave = {movie_id : this.state.selectedMovie.id}
       const movieResponse = await fetch(process.env.REACT_APP_API_URL + '/saved_movie/', {
         method: 'POST',
         body: JSON.stringify(movieToSave),
@@ -73,7 +74,7 @@ class MovieContainer extends Component {
             changeGenre = {this.changeGenre}
             pickMovie = {this.pickMovie}
             />
-            {this.props.isLogged ? <MovieSaver saveMovie = {this.saveMovie}/> : null}
+            {this.props.isLogged ? <MovieSaver saveMovie = {this.saveMovie} loggedUserId = {this.props.loggedUserId}/> : null}
             <MovieRender 
             selectedMovie = {this.state.selectedMovie}
             />

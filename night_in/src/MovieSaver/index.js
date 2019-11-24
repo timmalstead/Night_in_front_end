@@ -4,15 +4,18 @@ import {FormStyle} from '../RecipeSaver/style.js'
 class MovieSaver extends Component {
   
     state = {
-
+        savedMovies : []
     }
 
-    getSavedRecipes = async () => {
+    getSavedMovies = async () => {
         try{
-            const movies = await fetch(process.env.REACT_APP_API_URL + '/saved_movie/1');
+            const movies = await fetch(process.env.REACT_APP_API_URL + '/saved_movie/' + this.props.loggedUserId);
             const parsedMovies = await movies.json();
             if (parsedMovies.status.code === 200) {
                 console.log(parsedMovies, "query sucessful")
+                this.setState({
+                    savedMovies : parsedMovies.data
+                })
             }
         } catch(err){
             console.log(err)
@@ -20,7 +23,7 @@ class MovieSaver extends Component {
     }
 
     componentDidMount(){
-        this.getSavedRecipes()
+        this.getSavedMovies()
     }
 
 
