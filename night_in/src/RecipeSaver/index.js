@@ -12,7 +12,7 @@ class RecipeSaver extends Component {
             const recipes = await fetch(process.env.REACT_APP_API_URL + '/saved_food/1');
             const parsedRecipes = await recipes.json();
             if (parsedRecipes.status.code === 200) {
-                console.log(parsedRecipes)
+                console.log(parsedRecipes, "query sucessful")
             }
         } catch(err){
             console.log(err)

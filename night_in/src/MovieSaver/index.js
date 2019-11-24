@@ -12,7 +12,7 @@ class MovieSaver extends Component {
             const movies = await fetch(process.env.REACT_APP_API_URL + '/saved_movie/1');
             const parsedMovies = await movies.json();
             if (parsedMovies.status.code === 200) {
-                console.log(parsedMovies)
+                console.log(parsedMovies, "query sucessful")
             }
         } catch(err){
             console.log(err)

@@ -47,7 +47,7 @@ class RecipeContainer extends Component {
           changeRecipeCatergory={this.changeRecipeCatergory}
           getRecipe={this.getRecipe}
           />
-          <RecipeSaver />
+          {this.props.isLogged ? <RecipeSaver /> : null}
           <RecipeRender 
           selectedRecipe={this.state.selectedRecipe}
           />

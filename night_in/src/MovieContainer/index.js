@@ -53,7 +53,7 @@ class MovieContainer extends Component {
             changeGenre = {this.changeGenre}
             pickMovie = {this.pickMovie}
             />
-            <MovieSaver />
+            {this.props.isLogged ? <MovieSaver /> : null}
             <MovieRender 
             selectedMovie = {this.state.selectedMovie}
             />
