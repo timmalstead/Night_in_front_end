@@ -26,7 +26,7 @@ class MovieSaver extends Component {
 
     render(){
     return(
-        <FormStyle>
+        <FormStyle onSubmit={this.props.saveMovie}>
             <select>
                 <option>Saved Movies</option>
             </select>

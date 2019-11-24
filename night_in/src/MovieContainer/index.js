@@ -45,6 +45,26 @@ class MovieContainer extends Component {
     })
   }
 
+  saveMovie = async (e) => {
+    e.preventDefault()
+    if (this.state.selectedMovie) {
+    try {
+      const movieToSave = { user : this.props.loggedUserId, movie_id : this.state.selectedMovie.id}
+      const movieResponse = await fetch(process.env.REACT_APP_API_URL + '/saved_movie/', {
+        method: 'POST',
+        body: JSON.stringify(movieToSave),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      const parsedMovie = await movieResponse.json()
+      console.log(parsedMovie)
+    } catch (err) {
+      console.log(err)
+      }
+    }
+  }
+
   render(){
     return(
       <RecipeStyle>
@@ -53,7 +73,7 @@ class MovieContainer extends Component {
             changeGenre = {this.changeGenre}
             pickMovie = {this.pickMovie}
             />
-            {this.props.isLogged ? <MovieSaver /> : null}
+            {this.props.isLogged ? <MovieSaver saveMovie = {this.saveMovie}/> : null}
             <MovieRender 
             selectedMovie = {this.state.selectedMovie}
             />
