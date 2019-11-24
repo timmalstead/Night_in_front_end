@@ -5,7 +5,8 @@ class Register extends Component {
   state = {
     username: '',
     password: '',
-    email: ''
+    email: '',
+    CurrentUserId: ''
   }
 
   handleChange = (e) => {
@@ -31,10 +32,9 @@ class Register extends Component {
 
     console.log(parsedResponse)
 
-    if(parsedResponse.status.code === "Success"){
+    if(parsedResponse.status.message === "Success"){
       console.log('we did it')
-      this.props.doUpdateCurrentUser(parsedResponse.data)
-      this.props.history.push('/')
+      this.props.doUpdateCurrentUser(parsedResponse.data.id)  
     }
   }
 
@@ -47,7 +47,7 @@ class Register extends Component {
         <input type='password' name="password" onChange={this.handleChange} />
         <small> Email</small>
         <input type='text' name="email" onChange={this.handleChange} />
-        <button type="Submit" color="green">Register</button>
+        <button type="Submit"  >Register</button>
       </form>
     )
   }

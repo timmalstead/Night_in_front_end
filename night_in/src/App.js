@@ -14,7 +14,9 @@ class App extends Component {
   
   state = {
     showLogIn : false,
-    showRegister : false
+    showRegister : false,
+    isLogged : false,
+    loggedUserId : undefined
   }
 
   logIn = () => {
@@ -29,13 +31,28 @@ class App extends Component {
     })
   }
 
+  
+  doUpdateCurrentUser = userId => {
+    this.setState({
+      loggedUserId : userId,
+      isLogged : true
+    })
+    console.log(userId)
+  }
+  logoutCurrentUser= () => {
+    this.setState({
+      loggedUserId : undefined,
+      isLogged : false
+      
+    })
+  }
+
   render() {
   return (
     <div>
-      <Navbar logIn ={this.logIn}/>
-      {this.state.showLogIn ? <Login register = {this.register}/> : null}
-      {this.state.showLogIn ? <Edit ></Edit> : null}
-      {this.state.showRegister ? <Register /> : null}
+      <Navbar logIn ={this.logIn} logoutCurrentUser = {this.logoutCurrentUser}/>
+      {this.state.showLogIn ? <Login register = {this.register} doUpdateCurrentUser = {this.doUpdateCurrentUser} /> : null}
+      {this.state.showRegister ? <Register doUpdateCurrentUser = {this.doUpdateCurrentUser} /> : null}
       <div className="main-app" style={{'display': 'flex', 'margin' : '1em'}}>
         <MovieContainer />
         <RecipeContainer />

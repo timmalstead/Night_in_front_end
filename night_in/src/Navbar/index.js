@@ -11,6 +11,7 @@ function Navbar(props) {
              credentials: 'include',  
         })
         console.log('this is message', logout)
+        props.logoutCurrentUser()
     }
     // onClick={() => handleLogin()}
     return( 
