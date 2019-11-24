@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MovieSelectors from '../MovieSelectors'
 import MovieRender from '../MovieRender'
+import MovieSaver from '../MovieSaver'
 import RecipeStyle from '../RecipeContainer/style.js'
 
 class MovieContainer extends Component {
@@ -52,6 +53,7 @@ class MovieContainer extends Component {
             changeGenre = {this.changeGenre}
             pickMovie = {this.pickMovie}
             />
+            <MovieSaver />
             <MovieRender 
             selectedMovie = {this.state.selectedMovie}
             />
