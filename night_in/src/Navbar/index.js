@@ -25,7 +25,7 @@ function Navbar(props) {
                     </picture>
                 </div>
                 <section>
-                    {props.isLogged ? <p onClick={()=> handleLogout() }>LOGOUT</p> : <p onClick={() => props.logIn()}>LOGIN</p>}
+                    {props.isLogged ? <span> <p onClick={() => props.showEditProfileModal()}> EDIT PROFILE </p> <p onClick={()=> handleLogout() }>LOGOUT</p> </span>: <p onClick={() => props.logIn()}>LOGIN</p>}
                 </section>
             </main>
         </Nav>

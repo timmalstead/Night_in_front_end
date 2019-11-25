@@ -1,16 +1,19 @@
 import React from 'react'
+import {Modal, Form, Button, Label, Header} from 'semantic-ui-react'
 
 
 const EditUser = (props) =>{
 return (
-    <div>
-        <form onSubmit={props.editUserInfo}>
+    <Modal open={props.showEditProfile}>
+        <Modal.Content>
+            <Header>Edit Profile</Header>
+        <Form onSubmit={props.editUserInfo}>
             {/* user */}
-            <h1> username</h1>
-            <input type="text" name="username"  onChange={props.handleEditChange} value={props.userToEdit.username}></input>
-            <h1> email</h1>
-            <input type="text" name="email"  onChange={props.handleEditChange} value= {props.userToEdit.email} ></input>
-            <button type='submit'>Edit User</button>
+            <Label>Username</Label>
+            <Form.Input type="text" name="username"  onChange={props.handleEditChange} value={props.userToEdit.username}></Form.Input>
+            <Label>E-mail</Label>
+            <Form.Input type="text" name="email"  onChange={props.handleEditChange} value= {props.userToEdit.email} ></Form.Input>
+            <Button type='submit'>Edit User</Button>
             
             {/* Food
             <input type="checkbox" name="beef" value={props.foodPref.beef}></input>
@@ -45,9 +48,11 @@ return (
             <input type="checkbox" name="war" value={props.moviePref.war}></input>
             <input type="checkbox" name="action" value={props.moviePref.action}></input>
             <input type="checkbox" name="biography" value={props.moviePref.biography}></input> */} 
-        </form>
-        <button onClick= {props.deleteUser}>DELETE</button>
-    </div>
+        <Button type="button" onClick= {props.deleteUser}>Delete</Button>
+        <Button type="button" onClick={props.universalClose}>Close</Button>
+        </Form>
+        </Modal.Content>
+    </Modal>
 )
 }
 

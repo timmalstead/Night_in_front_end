@@ -16,6 +16,12 @@ const RecipeStyle = styled.div`
         height : 41em;
         border-radius : 3em;
         overflow : scroll;
+    
+    }
+
+    main::-webkit-scrollbar {
+        width : 0px;
+        background : transparent;
     }
 
     @media (max-width: 900px) {
