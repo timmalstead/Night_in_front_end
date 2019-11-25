@@ -15,6 +15,7 @@ class Register extends Component {
     })
   }
 
+
   handleSubmit = async (e) => {
     e.preventDefault()
     const registerResponse = await fetch(`${process.env.REACT_APP_API_URL}/user/register`,{
@@ -34,7 +35,7 @@ class Register extends Component {
 
     if(parsedResponse.status.message === "Success"){
       console.log('we did it')
-      this.props.doUpdateCurrentUser(parsedResponse.data.id)  
+      this.props.doUpdateCurrentUser(parsedResponse.data)  
     }
   }
 

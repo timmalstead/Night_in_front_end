@@ -34,7 +34,7 @@ class Login extends Component {
 
     if(parsedResponse.status.message === "Success"){
       console.log('we did it')
-      this.props.doUpdateCurrentUser(parsedResponse.data.id)
+      this.props.doUpdateCurrentUser(parsedResponse.data)
     }
   }
 

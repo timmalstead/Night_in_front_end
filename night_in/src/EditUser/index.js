@@ -1,15 +1,18 @@
 import React from 'react'
-import { ReactComponent } from '*.svg'
+
 
 const EditUser = (props) =>{
 return (
     <div>
-        <form>
+        <form onSubmit={props.editUserInfo}>
             {/* user */}
-            <input type="text" name="username" value={props.username}></input>
-            <input type="text" name="password"></input>
-            <input type="text" name="email" value= {props.email} ></input>
-            {/* Food */}
+            <h1> username</h1>
+            <input type="text" name="username"  onChange={props.handleEditChange} value={props.userToEdit.username}></input>
+            <h1> email</h1>
+            <input type="text" name="email"  onChange={props.handleEditChange} value= {props.userToEdit.email} ></input>
+            <button type='submit'>Edit User</button>
+            
+            {/* Food
             <input type="checkbox" name="beef" value={props.foodPref.beef}></input>
             <input type="checkbox" name="breakfast" value={props.foodPref.breakfast}></input>
             <input type="checkbox" name="chicken" value={props.foodPref.chicken}></input>
@@ -25,7 +28,7 @@ return (
             <input type="checkbox" name="vegan" value={props.foodPref.pork}></input>
             <input type="checkbox" name="vegetarian" value={props.foodPref.pork}></input>
             {/* Movies */}
-            <input type="checkbox" name="horror" value={props.moviePref.horror}></input>
+            {/* <input type="checkbox" name="horror" value={props.moviePref.horror}></input>
             <input type="checkbox" name="comedy" value={props.moviePref.comedy}></input>
             <input type="checkbox" name="romance" value={props.moviePref.romance}></input>
             <input type="checkbox" name="animation" value={props.moviePref.animation}></input>
@@ -41,8 +44,9 @@ return (
             <input type="checkbox" name="western" value={props.moviePref.western}></input>
             <input type="checkbox" name="war" value={props.moviePref.war}></input>
             <input type="checkbox" name="action" value={props.moviePref.action}></input>
-            <input type="checkbox" name="biography" value={props.moviePref.biography}></input>
+            <input type="checkbox" name="biography" value={props.moviePref.biography}></input> */} 
         </form>
+        <button onClick= {props.deleteUser}>DELETE</button>
     </div>
 )
 }

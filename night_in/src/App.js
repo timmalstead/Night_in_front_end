@@ -6,7 +6,8 @@ import MovieContainer from './MovieContainer';
 import Register from './Register';
 import Login from './Login'
 import Navbar from './Navbar'
-import RecipeContainer from './RecipeContainer'
+import RecipeContainer from './RecipeContainer';
+import EditUser from './EditUser';
 
 
 //Parent Container
@@ -16,7 +17,11 @@ class App extends Component {
     showLogIn : false,
     showRegister : false,
     isLogged : false,
-    loggedUserId : undefined
+    loggedUserId : undefined,
+    userToEdit: {
+      username: '',
+      email: ''
+    }
   }
 
   logIn = () => {
@@ -31,21 +36,63 @@ class App extends Component {
     })
   }
 
-  
-  doUpdateCurrentUser = userId => {
+  handleEditChange = e => {
     this.setState({
-      loggedUserId : userId,
+      userToEdit:  {
+        ...this.state.userToEdit,
+        [e.currentTarget.name]: e.currentTarget.value
+      }
+    })
+  }
+  
+  doUpdateCurrentUser = data => {
+    this.setState({
+      loggedUserId : data.id,
+      userToEdit : {
+        username:  data.username,
+        email : data.email
+        },
+      
       isLogged : true
     })
-    console.log(userId)
+    console.log(data)
   }
-  logoutCurrentUser= () => {
-    this.setState({
-      loggedUserId : undefined,
-      isLogged : false
+
+  editUserInfo = async (e) =>{
+    e.preventDefault() 
+    try {
+      console.log(this.state.userToEdit)
+      const editResponse = await fetch(process.env.REACT_APP_API_URL + '/user/edit', {
+        method: 'PUT',
+        body: JSON.stringify(this.state.userToEdit),
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
       
-    })
-  }
+      const editResponseParsed = await editResponse.json();
+      console.log(editResponseParsed, ' parsed edit')
+     
+    } catch(err){
+      console.log(err)
+    }
+  } 
+   logoutCurrentUser = () => {
+     this.setState({
+       loggedUserId: undefined,
+       isLogged: false
+     })
+     
+   }
+   deleteUser = async () =>{
+     const deleteUserResponse = await fetch(process.env.REACT_APP_API_URL + '/user/delete', {
+       method : 'DELETE',
+       credentials: 'include'
+     });
+     const deleteUserParsed = await deleteUserResponse.json()
+     this.logoutCurrentUser()
+       }
 
   render() {
   return (
@@ -56,6 +103,7 @@ class App extends Component {
       <div className="main-app" style={{'display': 'flex', 'margin' : '1em'}}>
         <MovieContainer isLogged = {this.state.isLogged} loggedUserId={this.state.loggedUserId}/>
         <RecipeContainer isLogged = {this.state.isLogged} loggedUserId={this.state.loggedUserId}/>
+        <EditUser userToEdit = {this.state.userToEdit} editUserInfo={this.editUserInfo}  handleEditChange= {this.handleEditChange} deleteUser = {this.deleteUser} />
       </div>
     </div>
   );
