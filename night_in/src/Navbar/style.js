@@ -20,8 +20,12 @@ div {
 section {
     margin :  0 2em;
     display : flex;
-    flex-direction : column;
+    // flex-direction : row;
     justify-content : center;
+}
+
+span {
+    display : flex;
 }
 
 p {

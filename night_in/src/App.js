@@ -17,11 +17,26 @@ class App extends Component {
     showLogIn : false,
     showRegister : false,
     isLogged : false,
+    showEditProfile : false,
     loggedUserId : undefined,
     userToEdit: {
       username: '',
       email: ''
     }
+  }
+  
+  universalClose = () => {
+    this.setState({
+      showLogIn : false,
+      showRegister : false,
+      showEditProfile : false
+    })
+  }
+
+  showEditProfileModal = () => {
+    this.setState({
+      showEditProfile : true
+    })
   }
 
   logIn = () => {
@@ -29,9 +44,16 @@ class App extends Component {
       showLogIn : true
     })
   }
+  
+  closeLogIn = () => {
+    this.setState({
+      showLogIn : false
+    })
+  }
 
   register = () => {
     this.setState({
+      showLogIn : false,
       showRegister : true
     })
   }
@@ -73,7 +95,9 @@ class App extends Component {
       
       const editResponseParsed = await editResponse.json();
       console.log(editResponseParsed, ' parsed edit')
-     
+     this.setState({
+      showEditProfile : false
+     })
     } catch(err){
       console.log(err)
     }
@@ -90,6 +114,9 @@ class App extends Component {
        method : 'DELETE',
        credentials: 'include'
      });
+     this.setState({
+      showEditProfile : false
+     })
      const deleteUserParsed = await deleteUserResponse.json()
      this.logoutCurrentUser()
        }
@@ -97,13 +124,13 @@ class App extends Component {
   render() {
   return (
     <div>
-      <Navbar isLogged={this.state.isLogged} logIn ={this.logIn} logoutCurrentUser = {this.logoutCurrentUser}/>
-      {this.state.showLogIn ? <Login register = {this.register} doUpdateCurrentUser = {this.doUpdateCurrentUser} /> : null}
-      {this.state.showRegister ? <Register doUpdateCurrentUser = {this.doUpdateCurrentUser} /> : null}
+      <Navbar isLogged={this.state.isLogged} logIn ={this.logIn} logoutCurrentUser = {this.logoutCurrentUser} showEditProfileModal={this.showEditProfileModal}/>
+      {this.state.showLogIn ? <Login register = {this.register} doUpdateCurrentUser = {this.doUpdateCurrentUser} showLogIn={this.state.showLogIn} closeLogIn={this.closeLogIn} universalClose ={this.universalClose}/> : null}
+      {this.state.showRegister ? <Register doUpdateCurrentUser = {this.doUpdateCurrentUser} showRegister={this.state.showRegister} universalClose ={this.universalClose}/> : null}
+      {this.state.isLogged ? <EditUser userToEdit = {this.state.userToEdit} editUserInfo={this.editUserInfo}  handleEditChange= {this.handleEditChange} deleteUser = {this.deleteUser} showEditProfile={this.state.showEditProfile} universalClose ={this.universalClose}/> : null}
       <div className="main-app" style={{'display': 'flex', 'margin' : '1em'}}>
         <MovieContainer isLogged = {this.state.isLogged} loggedUserId={this.state.loggedUserId}/>
         <RecipeContainer isLogged = {this.state.isLogged} loggedUserId={this.state.loggedUserId}/>
-        <EditUser userToEdit = {this.state.userToEdit} editUserInfo={this.editUserInfo}  handleEditChange= {this.handleEditChange} deleteUser = {this.deleteUser} />
       </div>
     </div>
   );
