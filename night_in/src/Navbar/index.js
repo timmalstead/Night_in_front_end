@@ -1,6 +1,7 @@
 import React  from 'react';
 import Nav from './style.js'
 import '../../public/NightInLogo.svg'
+import '../../public/HorizontalNightInLogo.svg'
 
 function Navbar(props) {
 
@@ -18,7 +19,7 @@ function Navbar(props) {
         <Nav>
             <main>
                 <div>
-                    <img alt="Night In Logo" src='NightInLogo.svg' style={{'margin' : '1em'}}/>
+                    <img alt="Night In Logo" src='HorizontalNightInLogo.svg' style={{'margin' : '1em'}}/>
                 </div>
                 <section>
                     <p onClick={() => props.logIn()}>LOGIN</p>
