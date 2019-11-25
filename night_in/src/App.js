@@ -50,7 +50,7 @@ class App extends Component {
   render() {
   return (
     <div>
-      <Navbar logIn ={this.logIn} logoutCurrentUser = {this.logoutCurrentUser}/>
+      <Navbar isLogged={this.state.isLogged} logIn ={this.logIn} logoutCurrentUser = {this.logoutCurrentUser}/>
       {this.state.showLogIn ? <Login register = {this.register} doUpdateCurrentUser = {this.doUpdateCurrentUser} /> : null}
       {this.state.showRegister ? <Register doUpdateCurrentUser = {this.doUpdateCurrentUser} /> : null}
       <div className="main-app" style={{'display': 'flex', 'margin' : '1em'}}>

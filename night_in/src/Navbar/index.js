@@ -1,6 +1,7 @@
 import React  from 'react';
 import Nav from './style.js'
 import '../../public/NightInLogo.svg'
+import '../../public/HorizontalNightInLogo.svg'
 
 function Navbar(props) {
 
@@ -13,17 +14,18 @@ function Navbar(props) {
         console.log('this is message', logout)
         props.logoutCurrentUser()
     }
-    // onClick={() => handleLogin()}
+    
     return( 
         <Nav>
             <main>
                 <div>
-                    <img alt="Night In Logo" src='NightInLogo.svg' style={{'margin' : '1em'}}/>
+                    <picture>
+                        <source media="(min-width: 700px)" srcSet="HorizontalNightInLogo.svg"/>
+                        <img alt="Night In Logo" src='NightInLogo.svg' style={{'margin' : '1em 3em'}}/>
+                    </picture>
                 </div>
                 <section>
-                    <p onClick={() => props.logIn()}>LOGIN</p>
-                    {/* <a href="/Home">Login</a> */}
-                    <p onClick={()=> handleLogout() }>LOGOUT</p>
+                    {props.isLogged ? <p onClick={()=> handleLogout() }>LOGOUT</p> : <p onClick={() => props.logIn()}>LOGIN</p>}
                 </section>
             </main>
         </Nav>
