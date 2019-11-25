@@ -10,7 +10,8 @@ class MovieContainer extends Component {
       this.state = {
         movies: [],
         selectedGenre : undefined,
-        selectedMovie : undefined
+        selectedMovie : undefined,
+        showDeleteMovieButton : false
       }
   }
 
@@ -41,7 +42,15 @@ class MovieContainer extends Component {
     const moviesInGenre = this.state.movies.filter(movie => movie.genre === this.state.selectedGenre)
     const randomMovieNumber = Math.floor(Math.random() * moviesInGenre.length)
     this.setState({
-      selectedMovie : moviesInGenre[randomMovieNumber]
+      selectedMovie : moviesInGenre[randomMovieNumber],
+      showDeleteMovieButton : false
+    })
+  }
+
+  requestSavedMovie = (e) => {
+    this.setState({
+      selectedMovie : this.state.movies[Number(e.target.value) - 1],
+      showDeleteMovieButton : true
     })
   }
 
@@ -53,7 +62,12 @@ class MovieContainer extends Component {
             changeGenre = {this.changeGenre}
             pickMovie = {this.pickMovie}
             />
-            <MovieSaver />
+            {this.props.isLogged ? <MovieSaver 
+            requestSavedMovie={this.requestSavedMovie} 
+            selectedMovie={this.state.selectedMovie} 
+            loggedUserId = {this.props.loggedUserId} 
+            showDeleteMovieButton = {this.state.showDeleteMovieButton}
+            /> : null}
             <MovieRender 
             selectedMovie = {this.state.selectedMovie}
             />
@@ -63,5 +77,4 @@ class MovieContainer extends Component {
   }
 }
  
-
 export default MovieContainer

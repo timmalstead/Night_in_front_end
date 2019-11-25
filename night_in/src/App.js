@@ -54,8 +54,8 @@ class App extends Component {
       {this.state.showLogIn ? <Login register = {this.register} doUpdateCurrentUser = {this.doUpdateCurrentUser} /> : null}
       {this.state.showRegister ? <Register doUpdateCurrentUser = {this.doUpdateCurrentUser} /> : null}
       <div className="main-app" style={{'display': 'flex', 'margin' : '1em'}}>
-        <MovieContainer />
-        <RecipeContainer />
+        <MovieContainer isLogged = {this.state.isLogged} loggedUserId={this.state.loggedUserId}/>
+        <RecipeContainer isLogged = {this.state.isLogged} loggedUserId={this.state.loggedUserId}/>
       </div>
     </div>
   );
