@@ -54,10 +54,6 @@ class MovieContainer extends Component {
     })
   }
 
-  // deleteMovie = () => {
-  //   console.log("howdy doodies!")
-  // }
-
   render(){
     return(
       <RecipeStyle>

@@ -9,7 +9,8 @@ class RecipeContainer extends Component {
     super(props);
       this.state = {
        recipeCatergory : undefined,
-       selectedRecipe : undefined
+       selectedRecipe : undefined,
+       showRecipeDeleteButton : false
       }
   }
 
@@ -24,7 +25,8 @@ class RecipeContainer extends Component {
             const finalRecipe = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${randomRecipeId}`, {"method" : "GET"})
             const parseFinalRecipe = await finalRecipe.json()
             this.setState({
-                selectedRecipe : parseFinalRecipe.meals[0]
+                selectedRecipe : parseFinalRecipe.meals[0],
+                showRecipeDeleteButton : false
               })
         } catch (err) {
             console.log(err)
@@ -33,11 +35,20 @@ class RecipeContainer extends Component {
 
 }
 
-    changeRecipeCatergory = (e) => {
-        this.setState({
-        recipeCatergory : e.target.value
-        })
-    }
+  changeRecipeCatergory = (e) => {
+      this.setState({
+      recipeCatergory : e.target.value
+      })
+  }
+  
+  requestSavedRecipe = async (e) => {
+    const requestSavedRecipe = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${e.target.value}`, {"method" : "GET"})
+    const parseRequestedRecipe = await requestSavedRecipe.json()
+    this.setState({
+      selectedRecipe : parseRequestedRecipe.meals[0],
+      showRecipeDeleteButton : true
+    })
+  }
 
   render(){
     return(
@@ -47,7 +58,12 @@ class RecipeContainer extends Component {
           changeRecipeCatergory={this.changeRecipeCatergory}
           getRecipe={this.getRecipe}
           />
-          {this.props.isLogged ? <RecipeSaver /> : null}
+          {this.props.isLogged ? <RecipeSaver 
+          selectedRecipe={this.state.selectedRecipe}
+          loggedUserId = {this.props.loggedUserId}
+          requestSavedRecipe={this.requestSavedRecipe} 
+          showRecipeDeleteButton={this.state.showRecipeDeleteButton}
+          /> : null}
           <RecipeRender 
           selectedRecipe={this.state.selectedRecipe}
           />

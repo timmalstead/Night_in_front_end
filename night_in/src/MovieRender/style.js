@@ -32,7 +32,6 @@ const RenderStyle = styled.div`
         min-height : 80%;
         margin : 1em 0 0 0;
         border-radius : 1em;
-        // justify-self : flex-end;
     }
 
     details {

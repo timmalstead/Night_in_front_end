@@ -56,6 +56,7 @@ class MovieSaver extends Component {
             credentials: 'include'
           })
         const parsedMovieCall = await deleteMovieCall.json()
+        console.log(parsedMovieCall)
         this.setState({
             savedMovies : this.state.savedMovies.filter(movie => movie.id !== savedMovieFilter[0].id)
         })
