@@ -85,6 +85,14 @@ class App extends Component {
      })
      
    }
+   deleteUser = async () =>{
+     const deleteUserResponse = await fetch(process.env.REACT_APP_API_URL + '/user/delete', {
+       method : 'DELETE',
+       credentials: 'include'
+     });
+     const deleteUserParsed = await deleteUserResponse.json()
+     this.logoutCurrentUser()
+       }
 
   render() {
   return (
@@ -95,7 +103,7 @@ class App extends Component {
       <div className="main-app" style={{'display': 'flex', 'margin' : '1em'}}>
         <MovieContainer isLogged = {this.state.isLogged} loggedUserId={this.state.loggedUserId}/>
         <RecipeContainer isLogged = {this.state.isLogged} loggedUserId={this.state.loggedUserId}/>
-        <EditUser userToEdit = {this.state.userToEdit} editUserInfo={this.editUserInfo}  handleEditChange= {this.handleEditChange}/>
+        <EditUser userToEdit = {this.state.userToEdit} editUserInfo={this.editUserInfo}  handleEditChange= {this.handleEditChange} deleteUser = {this.deleteUser} />
       </div>
     </div>
   );

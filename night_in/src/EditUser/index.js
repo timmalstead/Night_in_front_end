@@ -46,6 +46,7 @@ return (
             <input type="checkbox" name="action" value={props.moviePref.action}></input>
             <input type="checkbox" name="biography" value={props.moviePref.biography}></input> */} 
         </form>
+        <button onClick= {props.deleteUser}>DELETE</button>
     </div>
 )
 }
