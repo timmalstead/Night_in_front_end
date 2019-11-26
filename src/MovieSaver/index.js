@@ -12,7 +12,7 @@ class MovieSaver extends Component {
 
     getSavedMovies = async () => {
         try{
-            const movies = await fetch(process.env.REACT_APP_API_URL + '/saved_movie/' + this.props.loggedUserId);
+            const movies = await fetch(`${process.env.REACT_APP_API_URL}/saved_movie/${this.props.loggedUserId}`);
             const parsedMovies = await movies.json();
             if (parsedMovies.status.code === 200) {
                 this.setState({
@@ -33,7 +33,7 @@ class MovieSaver extends Component {
         if (this.props.selectedMovie) {
         try {
           const movieToSave = { user : this.props.loggedUserId, movie_id : this.props.selectedMovie.id}
-          const movieResponse = await fetch(process.env.REACT_APP_API_URL + '/saved_movie/', {
+          const movieResponse = await fetch(`${process.env.REACT_APP_API_URL}/saved_movie/`, {
             method: 'POST',
             body: JSON.stringify(movieToSave),
             headers: {
@@ -53,7 +53,7 @@ class MovieSaver extends Component {
 
     deleteMovie = async () => {
         const savedMovieFilter = this.state.savedMovies.filter(movies => this.props.selectedMovie.id === movies.movie_id.id)
-        const deleteMovieCall = await fetch(process.env.REACT_APP_API_URL + '/saved_movie/' + savedMovieFilter[0].id, {
+        const deleteMovieCall = await fetch(`${process.env.REACT_APP_API_URL}/saved_movie/${savedMovieFilter[0].id}`, {
             method: 'DELETE',
             credentials: 'include'
           })

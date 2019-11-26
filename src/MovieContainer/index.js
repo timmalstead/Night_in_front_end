@@ -20,7 +20,7 @@ class MovieContainer extends Component {
 
   getMovies = async () => {
     try{
-      const movies = await fetch(process.env.REACT_APP_API_URL + '/movie/');
+      const movies = await fetch(`${process.env.REACT_APP_API_URL}/movie/`);
       const parsedMovies = await movies.json();
       this.setState({
         movies: parsedMovies.data
