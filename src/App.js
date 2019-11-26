@@ -83,7 +83,7 @@ class App extends Component {
     e.preventDefault() 
     try {
       console.log(this.state.userToEdit)
-      const editResponse = await fetch(process.env.REACT_APP_API_URL + '/user/edit', {
+      const editResponse = await fetch(`${process.env.REACT_APP_API_URL}/user/edit`, {
         method: 'PUT',
         body: JSON.stringify(this.state.userToEdit),
         credentials: 'include',
@@ -109,7 +109,7 @@ class App extends Component {
      
    }
    deleteUser = async () =>{
-     const deleteUserResponse = await fetch(process.env.REACT_APP_API_URL + '/user/delete', {
+     const deleteUserResponse = await fetch(`${process.env.REACT_APP_API_URL}/user/delete`, {
        method : 'DELETE',
        credentials: 'include'
      });
