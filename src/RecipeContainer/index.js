@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
+
 import RecipeSelectors from '../RecipeSelectors'
 import RecipeRender from '../RecipeRender'
 import RecipeSaver from '../RecipeSaver'
 import RecipeStyle from './style.js'
 
 class RecipeContainer extends Component {
-  constructor(props){
-    super(props);
-      this.state = {
+
+      state = {
        recipeCatergory : undefined,
        selectedRecipe : undefined,
        showRecipeDeleteButton : false
       }
-  }
-
+  
   getRecipe = async (e) => {
     e.preventDefault()
     if (this.state.recipeCatergory) {
@@ -32,7 +31,6 @@ class RecipeContainer extends Component {
             console.log(err)
         }
     }
-
 }
 
   changeRecipeCatergory = (e) => {

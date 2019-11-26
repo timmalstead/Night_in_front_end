@@ -26,18 +26,18 @@ const FormStyle = styled.form`
         flex-direction : column;
         width : 50%
     
-    button, select {
-        min-width : 30%;
-    }
+        button, select {
+            min-width : 30%;
+        }
     }
 
     @media (max-width: 900px) {
         
         width : 45%
     
-    button, select {
-        min-width : 30%;
-    }
+        button, select {
+            min-width : 30%;
+        }
     }
 `
 

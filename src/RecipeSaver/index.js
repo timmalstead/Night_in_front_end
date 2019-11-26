@@ -65,17 +65,17 @@ class RecipeSaver extends Component {
     }
 
     render(){
-    return(
-        <FormStyle onSubmit={this.saveRecipe}>
-            <RecipeSaverRender 
-            savedRecipes = {this.state.savedRecipes}
-            requestSavedRecipe={this.props.requestSavedRecipe}
-            />
-            <button type="submit" >Save Recipe</button>
-            {this.props.showRecipeDeleteButton ? <button type="button" onClick={this.deleteRecipe}>Delete</button> : null}
-        </FormStyle>
-    )
-  }
+        return(
+            <FormStyle onSubmit={this.saveRecipe}>
+                <RecipeSaverRender 
+                savedRecipes = {this.state.savedRecipes}
+                requestSavedRecipe={this.props.requestSavedRecipe}
+                />
+                <button type="submit" >Save Recipe</button>
+                {this.props.showRecipeDeleteButton ? <button type="button" onClick={this.deleteRecipe}>Delete</button> : null}
+            </FormStyle>
+        )
+    }
 }
 
 export default RecipeSaver

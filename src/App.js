@@ -1,7 +1,8 @@
 
-//Parent Container
 import React, { Component } from 'react';
+
 import './App.css';
+
 import MovieContainer from './MovieContainer';
 import Register from './Register';
 import Login from './Login'
@@ -9,8 +10,6 @@ import Navbar from './Navbar'
 import RecipeContainer from './RecipeContainer';
 import EditUser from './EditUser';
 
-
-//Parent Container
 class App extends Component {
   
   state = {
@@ -133,8 +132,8 @@ class App extends Component {
         <RecipeContainer isLogged = {this.state.isLogged} loggedUserId={this.state.loggedUserId}/>
       </div>
     </div>
-  );
+  )
   }
 }
 
-export default App;
+export default App

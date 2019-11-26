@@ -21,6 +21,7 @@ const RecipeStyle = styled.div`
 
     main::-webkit-scrollbar {
         width : 0px;
+        height : 0px;
         background : transparent;
     }
 
