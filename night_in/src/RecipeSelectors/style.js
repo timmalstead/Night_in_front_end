@@ -15,6 +15,7 @@ const FormStyle = styled.form`
         font-weight : 700;
         outline : none;
         border-radius : .25em;
+        
     }
 
     button {

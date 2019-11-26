@@ -124,6 +124,9 @@ class App extends Component {
   render() {
   return (
     <div>
+      <div id='stars'></div>
+      <div id='stars2'></div>
+      <div id='stars3'></div>
       <Navbar isLogged={this.state.isLogged} logIn ={this.logIn} logoutCurrentUser = {this.logoutCurrentUser} showEditProfileModal={this.showEditProfileModal}/>
       {this.state.showLogIn ? <Login register = {this.register} doUpdateCurrentUser = {this.doUpdateCurrentUser} showLogIn={this.state.showLogIn} closeLogIn={this.closeLogIn} universalClose ={this.universalClose}/> : null}
       {this.state.showRegister ? <Register doUpdateCurrentUser = {this.doUpdateCurrentUser} showRegister={this.state.showRegister} universalClose ={this.universalClose}/> : null}
@@ -131,7 +134,11 @@ class App extends Component {
       <div className="main-app" style={{'display': 'flex', 'margin' : '1em'}}>
         <MovieContainer isLogged = {this.state.isLogged} loggedUserId={this.state.loggedUserId}/>
         <RecipeContainer isLogged = {this.state.isLogged} loggedUserId={this.state.loggedUserId}/>
+
       </div>
+        <footer class="footer">
+          <p>  A night so good you might stay-in again &trade; </p>
+        </footer>
     </div>
   );
   }

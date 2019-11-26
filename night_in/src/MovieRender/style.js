@@ -2,12 +2,13 @@ import styled from 'styled-components';
 
 const RenderStyle = styled.div`
 
-    color : #979797;
+    color : white;
     display : flex;
     align-items : center;
     flex-direction : column;
     width : 100%;
     height : 100%;
+    z-index: 1;
 
     .movie-holder {
         display : inherit;
@@ -16,6 +17,8 @@ const RenderStyle = styled.div`
         justify-content : flex-end;
         width : inherit;
         height : inherit;
+        
+        
     }
 
     a {
@@ -28,8 +31,8 @@ const RenderStyle = styled.div`
     }
 
     img {
-        max-height : 100%;
-        min-height : 80%;
+        max-height : 120%;
+        min-height : 100%;
         margin : 1em 0 0 0;
         border-radius : 1em;
     }
@@ -43,7 +46,7 @@ const RenderStyle = styled.div`
         outline : none;
     }
     h2 {
-        margin : .5em 0 .5em 0;
+        margin : 1.5em 0 .5em 0;
         text-align : center;
     }
 
