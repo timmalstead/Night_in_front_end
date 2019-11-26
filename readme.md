@@ -1,6 +1,6 @@
 ## Night-In
 
-Link to use ===>
+Link to use ===> https://night-in.herokuapp.com/
 
 * {image of app}
 
@@ -11,9 +11,9 @@ canada.eder@gmail.com, cguerrero@worldwaterinc.com, timmalstead@gmail.com
 
 ### Description
 
-* Night-In is an application where users are able to quickly select a movie based on genre and a recipe based on main ingredient to pair up and enjoy them together for a night-in.
+* Night-In is an application where users are able to quickly select a movie based on genre and a recipe based on main ingredient to pair up and enjoy them together for a night in.
 
-* With over 1000 movie selections and hundreds of recipes, there are countless possibilities for all users to find the perfect night-in combination. 
+* With over 1000 movie selections and hundreds of recipes, there are countless possibilities for all users to find the perfect night in combination. 
 
 ### Technologies Used 
 
@@ -33,7 +33,7 @@ canada.eder@gmail.com, cguerrero@worldwaterinc.com, timmalstead@gmail.com
 
 ### Getting Started 
 
-* {link to web app}
+* https://night-in.herokuapp.com/
 
 * The user loads up the app and is  presented with two groups of dropdown menus representing options to fetch both a movie and recipe.
 
@@ -41,9 +41,7 @@ canada.eder@gmail.com, cguerrero@worldwaterinc.com, timmalstead@gmail.com
 
 * To pair with the movie they are watching the user also selects a recipe at random based on the food category they selected  such as vegetarian, pasta, beef, etc. They are then provided with the recipe, list of ingredients, as well as steps to prepare the course. 
 
-* The user can then provide their phone number if they please in order to have the recipe sent over to their phone to help with the gathering/shopping for ingredients.
-
-* Additionally, the user has the option to register and save favorite recipes and movies as well as fill out their preferences regarding the two which will activate a "random night" feature which can summon a random movie and recipe based on the user's favorites.
+* Additionally, the user has the option to register and save favorite recipes and movies.
 
 ### Known Issues
 
@@ -51,7 +49,9 @@ canada.eder@gmail.com, cguerrero@worldwaterinc.com, timmalstead@gmail.com
 
 ### Next Steps
 
-* 
+* Save user food and movie preferences to create a "random night" feature that will select a movie and recipe with one click.
+
+* Send ingredients and cooking instructions to a provided phone number using a Socket.IO interface.
 
 ### Special Thanks
 
