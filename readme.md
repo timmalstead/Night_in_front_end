@@ -2,8 +2,7 @@
 
 Link to use ===> https://night-in.herokuapp.com/
 
-![Screen Shot 2019-11-25 at 8 01 06 PM](https://user-images.githubusercontent.com/54044142/69598746-3aecf780-0fbf-11ea-9880-b9f3ca352857.png)
-
+![Screen Shot 2019-11-26 at 9 49 56 AM](https://user-images.githubusercontent.com/54044142/69659067-49282b80-1032-11ea-837d-e7c96b3df296.png)
 
 ###### Version 1.0
 
