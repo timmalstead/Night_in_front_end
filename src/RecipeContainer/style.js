@@ -6,16 +6,17 @@ const RecipeStyle = styled.div`
     align-items : center;
     width : 50%;
     flex-direction : column;
+    
 
     main {
         display : inherit;
         align-items : inherit;
         flex-direction : inherit;
-        background-color : #181818;
+        padding: 3em;
         width : 95%;
         height : 41em;
-        border-radius : 3em;
         overflow : scroll;
+        margin: -6px
     
     }
 
@@ -30,7 +31,7 @@ const RecipeStyle = styled.div`
         width : 100%;
         
         main {
-            margin : 0 0 1em 0;
+            margin : 3em 0 1em 0;
         }
         
       }

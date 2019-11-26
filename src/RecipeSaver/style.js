@@ -15,10 +15,15 @@ const FormStyle = styled.form`
         font-weight : 700;
         outline : none;
         border-radius : .25em;
+        text-align: center;
+        
+        
     }
 
     button {
         min-width : 40%;
+        color: #979797;
+        text-align: center;
     }
 
     @media (max-width: 1100px) {
