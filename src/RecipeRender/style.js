@@ -43,7 +43,7 @@ const RenderStyle = styled.div`
         details {
             width : 20em;
         }
-
+        
 `
 
 export default RenderStyle

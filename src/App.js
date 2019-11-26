@@ -1,7 +1,8 @@
 
-//Parent Container
 import React, { Component } from 'react';
+
 import './App.css';
+
 import MovieContainer from './MovieContainer';
 import Register from './Register';
 import Login from './Login'
@@ -9,8 +10,6 @@ import Navbar from './Navbar'
 import RecipeContainer from './RecipeContainer';
 import EditUser from './EditUser';
 
-
-//Parent Container
 class App extends Component {
   
   state = {
@@ -84,7 +83,7 @@ class App extends Component {
     e.preventDefault() 
     try {
       console.log(this.state.userToEdit)
-      const editResponse = await fetch(process.env.REACT_APP_API_URL + '/user/edit', {
+      const editResponse = await fetch(`${process.env.REACT_APP_API_URL}/user/edit`, {
         method: 'PUT',
         body: JSON.stringify(this.state.userToEdit),
         credentials: 'include',
@@ -110,7 +109,7 @@ class App extends Component {
      
    }
    deleteUser = async () =>{
-     const deleteUserResponse = await fetch(process.env.REACT_APP_API_URL + '/user/delete', {
+     const deleteUserResponse = await fetch(`${process.env.REACT_APP_API_URL}/user/delete`, {
        method : 'DELETE',
        credentials: 'include'
      });
@@ -133,8 +132,8 @@ class App extends Component {
         <RecipeContainer isLogged = {this.state.isLogged} loggedUserId={this.state.loggedUserId}/>
       </div>
     </div>
-  );
+  )
   }
 }
 
-export default App;
+export default App

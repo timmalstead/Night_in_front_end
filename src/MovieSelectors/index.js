@@ -1,6 +1,6 @@
 import React from 'react'
-import {FormStyle} from '../RecipeSelectors/style.js'
 
+import {FormStyle} from '../RecipeSelectors/style.js'
 
 const Selector = (props) => {
 

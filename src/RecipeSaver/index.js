@@ -10,7 +10,7 @@ class RecipeSaver extends Component {
 
     getSavedRecipes = async () => {
         try{
-            const recipes = await fetch(process.env.REACT_APP_API_URL + '/saved_food/' + this.props.loggedUserId);
+            const recipes = await fetch(`${process.env.REACT_APP_API_URL}/saved_food/${this.props.loggedUserId}`);
             const parsedRecipes = await recipes.json();
             if (parsedRecipes.status.code === 200) {
                 console.log(parsedRecipes)
@@ -32,7 +32,7 @@ class RecipeSaver extends Component {
         if (this.props.selectedRecipe) {
             try {
                 const recipeToSave = {user : this.props.loggedUserId, meal_id : this.props.selectedRecipe.idMeal, recipe_title : this.props.selectedRecipe.strMeal}
-                const recipeResponse = await fetch(process.env.REACT_APP_API_URL + '/saved_food/', {
+                const recipeResponse = await fetch(`${process.env.REACT_APP_API_URL}/saved_food/`, {
                     method: 'POST',
                     body: JSON.stringify(recipeToSave),
                     headers: {
@@ -53,7 +53,7 @@ class RecipeSaver extends Component {
     deleteRecipe = async () => {
         const savedRecipeFilter = this.state.savedRecipes.filter(recipe => this.props.selectedRecipe.idMeal === recipe.meal_id)
         console.log(savedRecipeFilter)
-        const deleteRecipeCall = await fetch(process.env.REACT_APP_API_URL + '/saved_food/' + savedRecipeFilter[0].id, {
+        const deleteRecipeCall = await fetch(`${process.env.REACT_APP_API_URL}/saved_food/${savedRecipeFilter[0].id}`, {
             method: 'DELETE',
             credentials: 'include'
           })
@@ -65,17 +65,17 @@ class RecipeSaver extends Component {
     }
 
     render(){
-    return(
-        <FormStyle onSubmit={this.saveRecipe}>
-            <RecipeSaverRender 
-            savedRecipes = {this.state.savedRecipes}
-            requestSavedRecipe={this.props.requestSavedRecipe}
-            />
-            <button type="submit" >Save Recipe</button>
-            {this.props.showRecipeDeleteButton ? <button type="button" onClick={this.deleteRecipe}>Delete</button> : null}
-        </FormStyle>
-    )
-  }
+        return(
+            <FormStyle onSubmit={this.saveRecipe}>
+                <RecipeSaverRender 
+                savedRecipes = {this.state.savedRecipes}
+                requestSavedRecipe={this.props.requestSavedRecipe}
+                />
+                <button type="submit" >Save Recipe</button>
+                {this.props.showRecipeDeleteButton ? <button type="button" onClick={this.deleteRecipe}>Delete</button> : null}
+            </FormStyle>
+        )
+    }
 }
 
 export default RecipeSaver

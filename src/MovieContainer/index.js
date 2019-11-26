@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
+
 import MovieSelectors from '../MovieSelectors'
 import MovieRender from '../MovieRender'
 import MovieSaver from '../MovieSaver'
 import RecipeStyle from '../RecipeContainer/style.js'
 
 class MovieContainer extends Component {
-  constructor(props){
-    super(props);
-      this.state = {
-        movies: [],
-        selectedGenre : undefined,
-        selectedMovie : undefined,
-        showDeleteMovieButton : false
-      }
+
+  state = {
+    movies: [],
+    selectedGenre : undefined,
+    selectedMovie : undefined,
+    showDeleteMovieButton : false
   }
 
   componentDidMount(){
@@ -21,7 +20,7 @@ class MovieContainer extends Component {
 
   getMovies = async () => {
     try{
-      const movies = await fetch(process.env.REACT_APP_API_URL + '/movie/');
+      const movies = await fetch(`${process.env.REACT_APP_API_URL}/movie/`);
       const parsedMovies = await movies.json();
       this.setState({
         movies: parsedMovies.data

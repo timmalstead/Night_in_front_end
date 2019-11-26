@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import {Modal, Form, Button, Label, Header} from 'semantic-ui-react'
 
+import {Modal, Form, Button, Label, Header} from 'semantic-ui-react'
 
 class Register extends Component {
   state = {
@@ -15,7 +15,6 @@ class Register extends Component {
       [e.currentTarget.name]: e.currentTarget.value
     })
   }
-
 
   handleSubmit = async (e) => {
     e.preventDefault()

@@ -1,4 +1,5 @@
 import React, {  Component } from 'react'
+
 import {Modal, Form, Button, Label, Header} from 'semantic-ui-react'
 
 class Login extends Component {
@@ -14,7 +15,6 @@ class Login extends Component {
     })
   }
 
-  //flask json to js json
   handleSubmit = async (e) => {
     e.preventDefault()
     const registerResponse = await fetch(`${process.env.REACT_APP_API_URL}/user/login`,{
@@ -23,7 +23,6 @@ class Login extends Component {
       body: JSON.stringify(this.state),
       headers: {
         'Content-Type' : 'application/json'
-       
       }
     })
     

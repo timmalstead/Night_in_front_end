@@ -20,7 +20,6 @@ div {
 section {
     margin :  0 2em;
     display : flex;
-    // flex-direction : row;
     justify-content : center;
 }
 
