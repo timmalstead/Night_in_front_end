@@ -11,7 +11,6 @@ main {
     box-shadow: 0 .05em 1em #28667d;
     width: 100vw;
     margin: -6px;
-    
 }
 
 div {

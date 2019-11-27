@@ -47,9 +47,7 @@ class MovieContainer extends Component {
   }
 
   requestSavedMovie = (e) => {
-    // console.log(typeof(e.target.value))
     const movieFilter = this.state.movies.findIndex(movie => movie.id === Number(e.target.value))
-    // console.log(movieFilter)
     this.setState({
       // selectedMovie : this.state.movies[Number(e.target.value) - 1],
       selectedMovie : this.state.movies[movieFilter],

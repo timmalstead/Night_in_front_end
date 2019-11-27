@@ -136,7 +136,7 @@ class App extends Component {
 
       </div>
         <footer className="footer">
-          <p>  A night so good you might stay-in again &trade; </p>
+          <p>  A night so good you might stay in again &trade; </p>
         </footer>
     </div>
   )
