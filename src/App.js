@@ -135,7 +135,7 @@ class App extends Component {
         <RecipeContainer isLogged = {this.state.isLogged} loggedUserId={this.state.loggedUserId}/>
 
       </div>
-        <footer class="footer">
+        <footer className="footer">
           <p>  A night so good you might stay-in again &trade; </p>
         </footer>
     </div>
