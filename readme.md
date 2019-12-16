@@ -1,6 +1,6 @@
 ## Night-In
 
-Link to use ===> [link](https://night-in.herokuapp.com/)
+Link to [Night-In](https://night-in.herokuapp.com/)
 
 ![Screen Shot 2019-11-26 at 9 49 56 AM](https://user-images.githubusercontent.com/54044142/69659067-49282b80-1032-11ea-837d-e7c96b3df296.png)
 
