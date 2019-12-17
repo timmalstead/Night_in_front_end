@@ -1,81 +1,86 @@
-import React, { Component } from 'react';
+import React, { Component } from "react"
 
-import MovieSelectors from '../MovieSelectors'
-import MovieRender from '../MovieRender'
-import MovieSaver from '../MovieSaver'
-import RecipeStyle from '../RecipeContainer/style.js'
+import MovieSelectors from "../MovieSelectors"
+import MovieRender from "../MovieRender"
+import MovieSaver from "../MovieSaver"
+import RecipeStyle from "../RecipeContainer/style.js"
 
 class MovieContainer extends Component {
-
   state = {
+    err: "",
     movies: [],
-    selectedGenre : undefined,
-    selectedMovie : undefined,
-    showDeleteMovieButton : false
+    selectedGenre: undefined,
+    selectedMovie: undefined,
+    showDeleteMovieButton: false
   }
 
-  componentDidMount(){
-    this.getMovies();
+  componentDidMount() {
+    this.getMovies()
   }
 
   getMovies = async () => {
-    try{
-      const movies = await fetch(`${process.env.REACT_APP_API_URL}/movie/`);
-      const parsedMovies = await movies.json();
+    try {
+      const movies = await fetch(`${process.env.REACT_APP_API_URL}/movie/`)
+      const parsedMovies = await movies.json()
       this.setState({
         movies: parsedMovies.data
       })
-    } catch(err){
-      console.log(err)
+    } catch (err) {
+      this.setState({
+        err
+      })
     }
   }
 
-  changeGenre = (e) => {
+  changeGenre = e => {
     this.setState({
-      selectedGenre : e.target.value
+      selectedGenre: e.target.value
     })
   }
 
-  pickMovie = (e) => {
+  pickMovie = e => {
     e.preventDefault()
-    const moviesInGenre = this.state.movies.filter(movie => movie.genre === this.state.selectedGenre)
+    const moviesInGenre = this.state.movies.filter(
+      movie => movie.genre === this.state.selectedGenre
+    )
     const randomMovieNumber = Math.floor(Math.random() * moviesInGenre.length)
     this.setState({
-      selectedMovie : moviesInGenre[randomMovieNumber],
-      showDeleteMovieButton : false
+      selectedMovie: moviesInGenre[randomMovieNumber],
+      showDeleteMovieButton: false
     })
   }
 
-  requestSavedMovie = (e) => {
-    const movieFilter = this.state.movies.findIndex(movie => movie.id === Number(e.target.value))
+  requestSavedMovie = e => {
+    const movieFilter = this.state.movies.findIndex(
+      movie => movie.id === Number(e.target.value)
+    )
     this.setState({
-      // selectedMovie : this.state.movies[Number(e.target.value) - 1],
-      selectedMovie : this.state.movies[movieFilter],
-      showDeleteMovieButton : true
+      selectedMovie: this.state.movies[movieFilter],
+      showDeleteMovieButton: true
     })
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <RecipeStyle>
         <main>
-            <MovieSelectors 
-            changeGenre = {this.changeGenre}
-            pickMovie = {this.pickMovie}
+          <MovieSelectors
+            changeGenre={this.changeGenre}
+            pickMovie={this.pickMovie}
+          />
+          {this.props.isLogged ? (
+            <MovieSaver
+              requestSavedMovie={this.requestSavedMovie}
+              selectedMovie={this.state.selectedMovie}
+              loggedUserId={this.props.loggedUserId}
+              showDeleteMovieButton={this.state.showDeleteMovieButton}
             />
-            {this.props.isLogged ? <MovieSaver 
-            requestSavedMovie={this.requestSavedMovie} 
-            selectedMovie={this.state.selectedMovie} 
-            loggedUserId = {this.props.loggedUserId} 
-            showDeleteMovieButton = {this.state.showDeleteMovieButton}
-            /> : null}
-            <MovieRender 
-            selectedMovie = {this.state.selectedMovie}
-            />
+          ) : null}
+          <MovieRender selectedMovie={this.state.selectedMovie} />
         </main>
       </RecipeStyle>
     )
   }
 }
- 
+
 export default MovieContainer
