@@ -1,20 +1,30 @@
-import React from 'react'
+import React from "react"
 
-import {Modal, Form, Button, Label, Header} from 'semantic-ui-react'
+import { Modal, Form, Button, Label, Header } from "semantic-ui-react"
 
-const EditUser = (props) =>{
-    return (
-        <Modal open={props.showEditProfile}>
-            <Modal.Content>
-                <Header>Edit Profile</Header>
-                <Form onSubmit={props.editUserInfo}>
-                    <Label>Username</Label>
-                    <Form.Input type="text" name="username"  onChange={props.handleEditChange} value={props.userToEdit.username} />
-                    <Label>E-mail</Label>
-                    <Form.Input type="text" name="email"  onChange={props.handleEditChange} value= {props.userToEdit.email} />
-                    <Button type='submit'>Edit User</Button>
-                    
-                    {/* Food
+const EditUser = props => {
+  return (
+    <Modal open={props.showEditProfile}>
+      <Modal.Content>
+        <Header>Edit Profile</Header>
+        <Form onSubmit={props.editUserInfo}>
+          <Label>Username</Label>
+          <Form.Input
+            type="text"
+            name="username"
+            onChange={props.handleEditChange}
+            value={props.userToEdit.username}
+          />
+          <Label>E-mail</Label>
+          <Form.Input
+            type="text"
+            name="email"
+            onChange={props.handleEditChange}
+            value={props.userToEdit.email}
+          />
+          <Button type="submit">Edit User</Button>
+
+          {/* Food
 
                     <input type="checkbox" name="beef" value={props.foodPref.beef}></input>
                     <input type="checkbox" name="breakfast" value={props.foodPref.breakfast}></input>
@@ -33,7 +43,7 @@ const EditUser = (props) =>{
 
                     {/* Movies */}
 
-                    {/* <input type="checkbox" name="horror" value={props.moviePref.horror}></input>
+          {/* <input type="checkbox" name="horror" value={props.moviePref.horror}></input>
                     <input type="checkbox" name="comedy" value={props.moviePref.comedy}></input>
                     <input type="checkbox" name="romance" value={props.moviePref.romance}></input>
                     <input type="checkbox" name="animation" value={props.moviePref.animation}></input>
@@ -49,13 +59,17 @@ const EditUser = (props) =>{
                     <input type="checkbox" name="western" value={props.moviePref.western}></input>
                     <input type="checkbox" name="war" value={props.moviePref.war}></input>
                     <input type="checkbox" name="action" value={props.moviePref.action}></input>
-                    <input type="checkbox" name="biography" value={props.moviePref.biography}></input> */} 
-                    <Button type="button" onClick= {props.deleteUser}>Delete</Button>
-                    <Button type="button" onClick={props.universalClose}>Close</Button>
-                </Form>
-            </Modal.Content>
-        </Modal>
-    )
+                    <input type="checkbox" name="biography" value={props.moviePref.biography}></input> */}
+          <Button type="button" onClick={props.deleteUser}>
+            Delete
+          </Button>
+          <Button type="button" onClick={props.universalClose}>
+            Close
+          </Button>
+        </Form>
+      </Modal.Content>
+    </Modal>
+  )
 }
 
 export default EditUser
