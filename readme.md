@@ -51,7 +51,7 @@ canada.eder@gmail.com, cguerrero@worldwaterinc.com, timmalstead@gmail.com
 
 * Save user food and movie preferences to create a "random night" feature that will select a movie and recipe with one click.
 
-* Send ingredients and cooking instructions to a provided phone number using a Socket.IO interface.
+* Send ingredients and cooking instructions to a provided phone number using an SMS api.
 
 ### Special Thanks
 
