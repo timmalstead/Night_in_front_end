@@ -33,7 +33,7 @@ canada.eder@gmail.com, cguerrero@worldwaterinc.com, timmalstead@gmail.com
 
 ### Getting Started 
 
-* https://night-in.herokuapp.com/
+* [Night-In](https://night-in.herokuapp.com/)
 
 * The user loads up the app and is  presented with two groups of dropdown menus representing options to fetch both a movie and recipe.
 
